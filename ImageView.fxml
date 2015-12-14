@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="246.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ImageViewDemoController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ImageViewController">
   <children>
-    <ImageView fx:id="myImage" fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@Dog.jpg" />
-      </image>
-    </ImageView>
-    <RadioButton fx:id="dogRadioButton" layoutX="73.0" layoutY="184.0" mnemonicParsing="false" onAction="#dogRadioButtonListener" selected="true" text="Dog">
-      <toggleGroup>
-        <ToggleGroup fx:id="myToggleGroup" />
-      </toggleGroup>
-    </RadioButton>
-    <RadioButton fx:id="catRadioButton" layoutX="131.0" layoutY="184.0" mnemonicParsing="false" onAction="#catRadioButtonListener" text="Cat" toggleGroup="$myToggleGroup" />
+      <BorderPane layoutX="-4.0" layoutY="-3.0" prefHeight="329.0" prefWidth="449.0">
+         <top>
+            <MenuBar prefHeight="32.0" prefWidth="430.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#NewImage" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#RemoveImage" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#Guide" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <ScrollPane fx:id="Scroll" cache="true" cacheShape="false" fitToHeight="true" fitToWidth="true" prefHeight="364.0" prefWidth="338.0" BorderPane.alignment="CENTER">
+               <content>
+                  <GridPane fx:id="Grid" hgap="30.0" prefHeight="267.0" prefWidth="442.0" vgap="30.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="112.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="103.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="101.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="75.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </center>
+         <bottom>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <buttons>
+                  <CheckBox mnemonicParsing="false" text="List view" />
+                  <CheckBox mnemonicParsing="false" text="Thumbnail view" />
+               </buttons>
+            </ButtonBar>
+         </bottom>
+      </BorderPane>
   </children>
 </AnchorPane>
